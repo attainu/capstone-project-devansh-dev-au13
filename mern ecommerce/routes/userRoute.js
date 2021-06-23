@@ -7,7 +7,7 @@ const { Router } = require('express')
 router.post('/register',(req,res)=>{
 
     User.find({email:req.body.email},(err,docs)=>{
-        if(docs.lenght>0)
+        if(docs.length>0)
         {
             return res.status(400).json({message:'something went wrong'});
         }
@@ -52,6 +52,18 @@ router.post('/login',(req,res)=>{
         }
     })
 })
+
+// router.get('/getallusers',(req,res)=>{
+//     User.find({},(err,docs)=>{
+//         if(err){
+//             return res.status(400).json({message:'something want wrong'});
+
+//         }
+//         else{
+//             res.send(docs)
+//         }
+//     })
+// })
 
 
 module.exports = router
